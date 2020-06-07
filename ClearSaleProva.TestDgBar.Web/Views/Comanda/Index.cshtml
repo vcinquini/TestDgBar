@@ -1,0 +1,21 @@
+﻿@model ClearSaleProva.TestDgBar.Web.Models.ComandaViewModel
+
+
+<form method="post">
+
+    <div class="text-center">
+        <h1 class="display-4">DG Bar</h1>
+        <p>Abra a comanda para iniciar</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 offset-md-2">
+            <table class="table">
+                <tr>
+                    <td>@Html.ActionLink("Abrir Comanda", "AbrirComanda", "Comanda", null, null)</td>
+                    <td>@Html.ActionLink("Logout", "Logout", "Account")</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</form>

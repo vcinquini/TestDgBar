@@ -1,0 +1,63 @@
+﻿@model ClearSaleProva.TestDgBar.Web.Models.ComandaViewModel
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<form asp-action="InserirItem" method="post">
+
+	@Html.HiddenFor(model => model.Id)
+
+	<div class="text-center">
+		<h1 class="display-4">DG Bar</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-md-10 offset-md-2">
+			<table class="table">
+				<tr>
+					<td>@Html.ActionLink("Abrir Comanda", "AbrirComanda", "Comanda", null, null)</td>
+					<td>@Html.ActionLink("Resetar Comanda", "ResetarComanda", "Comanda", new { id = Model.Id }, null)</td>
+					<td>@Html.ActionLink("Fechar Comanda", "FecharComanda", "Comanda", new { id = Model.Id }, null)</td>
+				</tr>
+				@if (Model.Id > 0)
+				{
+					<tr>
+						<td colspan="3">Comanda Nº @Model.Id</td>
+					</tr>
+					<tr>
+						<td>Produto</td>
+						<td>Quantidade</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+							@Html.DropDownListFor(model => model.ItemId, Model.Produtos, "Selecione um Produto", new { @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.ItemId, "", new { @class = "text-danger" })
+						</td>
+						<td>
+							@Html.TextBoxFor(model => model.Quantidade, new { @type = "number", @min = "1", @step = "1", @value = "1", @class = "form-control" })
+							@Html.ValidationMessageFor(model => model.Quantidade, "", new { @class = "text-danger" })
+						</td>
+						<td><button type="submit" class="btn btn-primary">Inserir Item</button></td>
+					</tr>
+					@if (Model.Itens != null && Model.Itens.Any())
+					{
+						<tr><td colspan="4">&nbsp;</td></tr>
+						<tr><td colspan="4" align="center">CONSUMO</td></tr>
+						foreach (var item in Model.Itens)
+						{
+							<tr>
+								<td>@Html.Label(item.Produto.Descricao)</td>
+								<td>@Html.Label(item.Quantidade.ToString())</td>
+								<td>@Html.Label(item.Produto.Preco.ToString("C"))</td>
+							</tr>
+
+						}
+					}
+				}
+				<tr><td colspan="4">&nbsp;</td></tr>
+				<tr><td colspan="4" align="center">@Model.Mensagem</td></tr>
+			</table>
+		</div>
+	</div>
+</form>

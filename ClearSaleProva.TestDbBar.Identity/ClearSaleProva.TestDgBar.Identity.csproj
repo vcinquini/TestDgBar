@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClearSaleProva.TestDgBar.Dominio\ClearSaleProva.TestDgBar.Dominio.csproj" />
+    <ProjectReference Include="..\ClearSaleProva.TestDgBar.Infra\ClearSaleProva.TestDgBar.Infra.csproj" />
+    <ProjectReference Include="..\ClearSaleProva.TestDgBar.Servico\ClearSaleProva.TestDgBar.Aplicacao.csproj" />
+  </ItemGroup>
+
+
+</Project>

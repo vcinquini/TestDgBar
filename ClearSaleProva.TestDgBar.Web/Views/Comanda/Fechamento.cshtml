@@ -1,0 +1,57 @@
+﻿@model ClearSaleProva.TestDgBar.Web.Models.FechamentoViewModel
+
+
+<form asp-action="InserirItem" method="post">
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="text-center">
+        <h1 class="display-4">DG Bar</h1>
+        <p>Abra a comanda para iniciar</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 offset-md-2">
+			<table class="table">
+				<tr>
+					<td colspan="3">@Html.ActionLink("Abrir Comanda", "AbrirComanda", "Comanda", null, null)</td>
+				</tr>
+				<tr>
+					<td colspan="3">Comanda Nº @Model.Id</td>
+				</tr>
+				@if (Model.Id > 0)
+				{
+					<tr>
+						<td colspan="3" align="center">Fechamento de Comanda</td>
+					</tr>
+					@if (Model.Itens != null && Model.Itens.Any())
+					{
+						<tr><td colspan="4">&nbsp;</td></tr>
+						<tr><td colspan="4" align="center">CONSUMO</td></tr>
+						foreach (var item in Model.Itens)
+						{
+							<tr>
+								<td>@Html.Label(item.Produto.Descricao)</td>
+								<td>@Html.Label(item.Quantidade.ToString())</td>
+								<td>@Html.Label(item.Produto.Preco.ToString("C"))</td>
+							</tr>
+						}
+					}
+					@if (Model.ValorTotal > 0)
+					{
+						<tr><td colspan="4">&nbsp;</td></tr>
+						<tr><td colspan="4" align="center">VALORES</td></tr>
+						<tr><td>Consumo</td><td colspan="3">@Html.DisplayFor(model => model.ValorComanda)</td></tr>
+						<tr><td>Desconto</td><td colspan="3">@Html.DisplayFor(model => model.Desconto)</td></tr>
+						<tr><td>TOTAL</td><td colspan="3">@Html.DisplayFor(model => model.ValorTotal)</td></tr>
+						<tr><td>Mensagem</td><td colspan="3">@Html.DisplayFor(model => model.Mensagem)</td></tr>
+					}
+				}
+				else
+				{
+					<tr><td>Mensagem</td><td colspan="3">Sem comanda para fechar!</td></tr>
+				}
+			</table>
+        </div>
+    </div>
+</form>

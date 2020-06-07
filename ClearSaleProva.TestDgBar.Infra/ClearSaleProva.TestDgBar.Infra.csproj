@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200602234527_Inicial.cs" />
+    <Compile Remove="Migrations\20200602234527_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20200603123008_Inicial.cs" />
+    <Compile Remove="Migrations\20200603123008_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20200603152508_Inicial.cs" />
+    <Compile Remove="Migrations\20200603152508_Inicial.Designer.cs" />
+    <Compile Remove="Migrations\20200603185458_Inicial3.cs" />
+    <Compile Remove="Migrations\20200603185458_Inicial3.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClearSaleProva.TestDgBar.Dominio\ClearSaleProva.TestDgBar.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>

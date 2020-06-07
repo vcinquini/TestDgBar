@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mediatr" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClearSaleProva.TestDgBar.Dominio\ClearSaleProva.TestDgBar.Dominio.csproj" />
+    <ProjectReference Include="..\ClearSaleProva.TestDgBar.Infra\ClearSaleProva.TestDgBar.Infra.csproj" />
+  </ItemGroup>
+
+</Project>
