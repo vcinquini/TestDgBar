@@ -1,4 +1,4 @@
-# Easyinvest-Case
+# ClearSale TestDgBar
 
 ## Projeto ClearSale TestDgBar
 
